@@ -148,7 +148,7 @@ QString CCXOptions::getOptionsInputString()
 	inputOptions += ui->rbPTSFix->isChecked() ? " -fixptsjumps" : "";
 
 	//Input (2)
-    inputOptions += ui->cbNoTimeRef->isChecked() ? " -noautotimeref" : "";
+      inputOptions += ui->cbNoTimeRef->isChecked() ? " -noautotimeref" : "";
 	inputOptions += ui->rbClockGOP->isChecked() ? " -gt" : "";
 	inputOptions += ui->rbClockPTS->isChecked() ? " -nogt" : "";
 
@@ -161,7 +161,7 @@ QString CCXOptions::getOptionsInputString()
 	inputOptions += ui->cbMiscWTV->isChecked() ? " -wtvconvertfix" : "";
 	inputOptions += ui->cbMiscHaup->isChecked() ? " -haup" : "";
 	inputOptions += ui->cbMiscMP4ForceVideo->isChecked() ? " -mp4vidtrack" : "";
-    inputOptions += ui->cbMiscNoTimeRef->isChecked() ? " -noautotimeref" : "";
+      inputOptions += ui->cbMiscNoTimeRef->isChecked() ? " -noautotimeref" : "";
 	inputOptions += ui->rbTeletextForce->isChecked() ? " -teletext" : "";
 	inputOptions += ui->rbTeletextDisable->isChecked() ? " -noteletext" : "";
 
@@ -170,7 +170,7 @@ QString CCXOptions::getOptionsInputString()
 	inputOptions += ui->rbCodecTeletext->isChecked() ? " -codec teletext " : "";
 	inputOptions += ui->rbNocodecTeletext->isChecked() ? " -nocodec teletext " : "";
 
-  inputOptions += ui->cbVidTrack->isChecked() ? " -mp4vidtrack" : "";
+      inputOptions += ui->cbVidTrack->isChecked() ? " -mp4vidtrack" : "";
 	inputOptions += ui->cbWTVMPEG->isChecked() ? " -wtvmpeg2" : "";
 	inputOptions += ui->cbNoSCTE20->isChecked() ? " --noscte20" : "";
 
@@ -227,10 +227,10 @@ QString CCXOptions::getOptionsOutputString()
 
 	outputOptions += " " + ui->cbOutputType->currentData().toString();
 	if (ui->cbOutputPath->isChecked() && ui->cbOutputPath->text() == "Output filename:") {
-        if (ui->cfOption->isChecked())
-            outputOptions += " -cf " + ui->leOutputPath->text();
-        else
-            outputOptions += " -o " + ui->leOutputPath->text();
+            if (ui->cfOption->isChecked())
+                outputOptions += " -cf " + ui->leOutputPath->text();
+            else
+                outputOptions += " -o " + ui->leOutputPath->text();
 	} else if(ui->cbOutputPath->isChecked() && ui->cbOutputPath->text() == "POST to:") {
 		outputOptions += " -curlposturl " + ui->leOutputPath->text();
 	} else if(ui->cbOutputPath->isChecked()){
@@ -309,9 +309,9 @@ QString CCXOptions::getOptionsOutputString()
 
 	outputOptions += ui->cbChapters->isEnabled() && ui->cbChapters->isChecked() ? " -chapters" : "";
 	outputOptions += ui->cbAppend->isChecked() ? " --append" : "";
-  // Feature --noempty is disabled now
-  // To use it just change property of cbNoEmpty from disabled to enabled
-  outputOptions += ui->cbNoEmpty->isChecked() ? " --noempty" : "";
+      // Feature --noempty is disabled now
+      // To use it just change property of cbNoEmpty from disabled to enabled
+      outputOptions += ui->cbNoEmpty->isChecked() ? " --noempty" : "";
 	outputOptions += ui->cbWebvttCSS->isEnabled() && ui->cbWebvttCSS->isChecked() ? " --webvtt-create-css" : "";
 	outputOptions += ui->cbSegmentKey->isCheckable() ? " -key" : "";
 	outputOptions += ui->cbSplitSentence->isCheckable() ? " --splitbysentence" : "";
@@ -441,9 +441,9 @@ QString CCXOptions::getOptionsHardsubxString()
 			hardsubxOptions += " -detect_italics";
 		}
 
-    if (ui->cbquant->isChecked()){
-       hardsubxOptions += " -quant";
-    }
+              if (ui->cbquant->isChecked()){
+                      hardsubxOptions += " -quant";
+              }
     
 		hardsubxOptions += ui->cbTickerTape->isChecked() ? " -tickertext" : "";
 
@@ -475,7 +475,7 @@ void CCXOptions::on_cbHardsubx_toggled(bool checked)
 	ui->cbEnableItalicDetection->setEnabled(checked);
 	ui->gbMinSubDuration->setEnabled(checked);
 	ui->cbTickerTape->setEnabled(checked);
-  ui->cbquant->setEnabled(checked);
+      ui->cbquant->setEnabled(checked);
 }
 
 void CCXOptions::on_hsLumThresh_valueChanged(int value)
@@ -806,25 +806,25 @@ void CCXOptions::on_cbOutputTranscriptCustom_toggled(bool checked)
 
 void CCXOptions::on_cfOption_toggled(bool checked)
 {
-    ui->cfOption->setEnabled(checked);
+      ui->cfOption->setEnabled(checked);
 }
 
 void CCXOptions::on_cbNoEmpty_toggled(bool checked)
 {
-    ui->cbNoEmpty->setEnabled(checked);
+      ui->cbNoEmpty->setEnabled(checked);
 }
 
 void CCXOptions::on_cbNoTimeRef_toggled(bool checked)
 {
-    ui->cbNoTimeRef->setEnabled(checked);
+      ui->cbNoTimeRef->setEnabled(checked);
 }
 
 void CCXOptions::on_cbquant_toggled(bool checked)
 {
-    ui->cbquant->setEnabled(checked);
+      ui->cbquant->setEnabled(checked);
 }
 
 void CCXOptions::on_cbVidTrack_toggled(bool checked)
 {
-    ui->cbVidTrack->setEnabled(checked);
+      ui->cbVidTrack->setEnabled(checked);
 }
