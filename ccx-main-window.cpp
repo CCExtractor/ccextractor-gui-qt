@@ -336,9 +336,9 @@ void CCXMainWindow::on_menuBar_about_clicked()
 }
 void CCXMainWindow::dragEnterEvent(QDragEnterEvent *e)
 {
-      if (e->mimeData()->hasUrls()) {
-          e->acceptProposedAction();
-      }
+       if (e->mimeData()->hasUrls()) {
+           e->acceptProposedAction();
+       }
 }
 void CCXMainWindow::dropEvent(QDropEvent *e)
 {
