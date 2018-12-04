@@ -1,5 +1,5 @@
 # ccextractor-gui-qt
-<img src = "cc.png">
+![logo](cc.png)
 Qt-based GUI for CCExtractor (https://github.com/CCExtractor/ccextractor)
 
 ## Compilation guide
