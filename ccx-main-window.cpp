@@ -13,7 +13,7 @@ CCXMainWindow::CCXMainWindow(QWidget *parent) :
 	QMainWindow(parent),
 	ui(new Ui::CCXMainWindow)
 {
-      setAcceptDrops(true);
+    setAcceptDrops(true);
 	ui->setupUi(this);
 	this->setFixedSize(this->width(), this->height());
 	optionsWindow = new CCXOptions();
@@ -128,7 +128,7 @@ void CCXMainWindow::updateSourceOptions()
 	switch (index) {
 		case 0: //files
 			{
-                              sourceOptions = "";
+				sourceOptions = "";
 				for (int i = 0; i < ui->lwFiles->count(); i++) {
 					sourceOptions += " " + ui->lwFiles->item(i)->text();
 				}
@@ -136,7 +136,7 @@ void CCXMainWindow::updateSourceOptions()
 			break;
 		case 1: //filesystem
 			{
-                              sourceOptions = "";
+				sourceOptions = "";
 				QModelIndexList list = ui->treeViewFileSystem->selectionModel()->selectedIndexes();
 				QFileSystemModel* model = (QFileSystemModel*)ui->treeViewFileSystem->model();
 				int row = -1;
@@ -153,13 +153,34 @@ void CCXMainWindow::updateSourceOptions()
 			break;
 		case 2: //network
 			{
-				QString host = ui->leSourceUDPHost->text(),
-						port = ui->leSourceUDPPort->text();
-				sourceOptions = " -udp ";
-				if (host.length()) {
-					sourceOptions += host + ":";
+				QString UDPhost = ui->leSourceUDPHost->text(),
+					UDPport = ui->leSourceUDPPort->text();
+				QString TCPport = ui->leSourceTCPPort->text(),
+					TCPpass = ui->leSourceTCPPass->text(),
+					TCPdesc = ui->leSourceTCPDesc->text();
+				sourceOptions = "";
+				if (UDPport.length()) {
+					ui->leSourceTCPPort->setEnabled(false);
+					ui->leSourceTCPPass->setEnabled(false);
+					ui->leSourceTCPDesc->setEnabled(false);
+					sourceOptions = " -udp ";
+					sourceOptions += UDPhost.length() ? UDPhost + ":" : "";
+					sourceOptions += UDPport;
+				} else {
+					ui->leSourceTCPPort->setEnabled(true);
+					ui->leSourceTCPPass->setEnabled(true);
+					ui->leSourceTCPDesc->setEnabled(true);
+					if(TCPport.length()) {
+						ui->leSourceUDPHost->setEnabled(false);
+						ui->leSourceUDPPort->setEnabled(false);
+						sourceOptions = " -tcp " + TCPport;
+						sourceOptions += TCPpass.length() ? " -tcppassword " + TCPpass : "";
+						sourceOptions += TCPdesc.length() ? " -tcpdesc " + TCPdesc : "";
+					} else {
+						ui->leSourceUDPHost->setEnabled(true);
+						ui->leSourceUDPPort->setEnabled(true);
+					}
 				}
-				sourceOptions += port;
 			}
 			break;
 	}
@@ -179,6 +200,24 @@ void CCXMainWindow::on_leSourceUDPHost_textChanged(const QString &arg1)
 }
 
 void CCXMainWindow::on_leSourceUDPPort_textChanged(const QString &arg1)
+{
+	Q_UNUSED(arg1);
+	this->updateSourceOptions();
+}
+
+void CCXMainWindow::on_leSourceTCPPort_textChanged(const QString &arg1)
+{
+	Q_UNUSED(arg1);
+	this->updateSourceOptions();
+}
+
+void CCXMainWindow::on_leSourceTCPPass_textChanged(const QString &arg1)
+{
+	Q_UNUSED(arg1);
+	this->updateSourceOptions();
+}
+
+void CCXMainWindow::on_leSourceTCPDesc_textChanged(const QString &arg1)
 {
 	Q_UNUSED(arg1);
 	this->updateSourceOptions();
@@ -257,8 +296,8 @@ void CCXMainWindow::on_ccextractor_message()
 			if (progress == 100) {
 				ui->btnViewLog->setEnabled(true);
 			}
-        }
-    }
+	   }
+	}
 }
 
 void CCXMainWindow::on_ccextractor_log()
@@ -267,7 +306,7 @@ void CCXMainWindow::on_ccextractor_log()
 	QString logLine;
 	while (extractionProcess->canReadLine()) {
 		logLine = extractionProcess->readLine();
-        out << logLine;
+	   out << logLine;
 	}
 }
 
@@ -290,11 +329,12 @@ void CCXMainWindow::on_menuBar_exit_clicked()
 
 void CCXMainWindow::on_menuBar_about_clicked()
 {
-    if (!aboutWindow) {
-        aboutWindow = new CCXAbout();
-    }
-    aboutWindow->show();
+	if (!aboutWindow) {
+	   aboutWindow = new CCXAbout();
+	}
+	aboutWindow->show();
 }
+
 void CCXMainWindow::dragEnterEvent(QDragEnterEvent *e)
 {
     if (e->mimeData()->hasUrls()) {
@@ -304,8 +344,8 @@ void CCXMainWindow::dragEnterEvent(QDragEnterEvent *e)
 void CCXMainWindow::dropEvent(QDropEvent *e)
 {
     foreach (const QUrl &url, e->mimeData()->urls()) {
-    QString droppedFileName = url.toLocalFile();
-    ui->lwFiles->addItem(droppedFileName);
-    this->updateSourceOptions();
+        QString droppedFileName = url.toLocalFile();
+        ui->lwFiles->addItem(droppedFileName);
+        this->updateSourceOptions();
     }
 }

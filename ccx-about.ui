@@ -15,8 +15,7 @@
   </property>
   <property name="windowIcon">
    <iconset>
-    <selectedon>:/cc.png</selectedon>
-   </iconset>
+    <normaloff>C:/ccextractor-gui-qt/cc.png</normaloff>C:/ccextractor-gui-qt/cc.png</iconset>
   </property>
   <widget class="QTextBrowser" name="textBrowser">
    <property name="geometry">
@@ -61,17 +60,14 @@ p, li { white-space: pre-wrap; }
 &lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'Courier New,Courier,monospace'; font-size:10pt; color:#1e2325; background-color:#ffffff;&quot;&gt;Send me an email.&lt;/span&gt;&lt;/p&gt;
 &lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'Courier New,Courier,monospace'; font-size:10pt; font-weight:600; color:#1e2325; background-color:#ffffff;&quot;&gt;carlos@ccextractor.org&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
    </property>
-   <property name="openExternalLinks">
-    <bool>false</bool>
-   </property>
   </widget>
   <widget class="QLabel" name="label">
    <property name="geometry">
     <rect>
      <x>530</x>
      <y>20</y>
-     <width>181</width>
-     <height>171</height>
+     <width>171</width>
+     <height>181</height>
     </rect>
    </property>
    <property name="text">

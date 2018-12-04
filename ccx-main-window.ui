@@ -16,9 +16,6 @@
     <verstretch>0</verstretch>
    </sizepolicy>
   </property>
-  <property name="acceptDrops">
-   <bool>true</bool>
-  </property>
   <property name="windowTitle">
    <string>CCExtractor GUI Qt 0.1</string>
   </property>
@@ -79,7 +76,7 @@ QGroupBox::title {
       </rect>
      </property>
      <property name="currentIndex">
-      <number>0</number>
+      <number>2</number>
      </property>
      <widget class="QWidget" name="tabFiles">
       <attribute name="title">
@@ -191,6 +188,61 @@ QGroupBox::title {
          </item>
          <item row="1" column="1">
           <widget class="QLineEdit" name="leSourceUDPPort"/>
+         </item>
+        </layout>
+       </widget>
+      </widget>
+      <widget class="QGroupBox" name="gbTCP">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>100</y>
+         <width>331</width>
+         <height>111</height>
+        </rect>
+       </property>
+       <property name="title">
+        <string>TCP</string>
+       </property>
+       <widget class="QWidget" name="formLayoutWidget_3">
+        <property name="geometry">
+         <rect>
+          <x>10</x>
+          <y>20</y>
+          <width>311</width>
+          <height>81</height>
+         </rect>
+        </property>
+        <layout class="QFormLayout" name="formLayout_3">
+         <item row="0" column="0">
+          <widget class="QLabel" name="labelSourceTCP">
+           <property name="text">
+            <string>Port:</string>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="1">
+          <widget class="QLineEdit" name="leSourceTCPPort"/>
+         </item>
+         <item row="1" column="0">
+          <widget class="QLabel" name="labelSourceTCPPass">
+           <property name="text">
+            <string>Password:</string>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="1">
+          <widget class="QLineEdit" name="leSourceTCPPass"/>
+         </item>
+         <item row="2" column="0">
+          <widget class="QLabel" name="labelSourceTCPPort">
+           <property name="text">
+            <string>Description:</string>
+           </property>
+          </widget>
+         </item>
+         <item row="2" column="1">
+          <widget class="QLineEdit" name="leSourceTCPDesc"/>
          </item>
         </layout>
        </widget>
