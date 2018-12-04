@@ -334,7 +334,6 @@ void CCXMainWindow::on_menuBar_about_clicked()
 	}
 	aboutWindow->show();
 }
-
 void CCXMainWindow::dragEnterEvent(QDragEnterEvent *e)
 {
     if (e->mimeData()->hasUrls()) {

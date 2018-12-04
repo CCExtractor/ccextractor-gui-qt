@@ -170,8 +170,7 @@ QString CCXOptions::getOptionsInputString()
 	inputOptions += ui->rbCodecTeletext->isChecked() ? " -codec teletext " : "";
 	inputOptions += ui->rbNocodecTeletext->isChecked() ? " -nocodec teletext " : "";
 
-    inputOptions += ui->cbVidTrack->isChecked() ? " -mp4vidtrack" : "";
-
+  inputOptions += ui->cbVidTrack->isChecked() ? " -mp4vidtrack" : "";
 	inputOptions += ui->cbWTVMPEG->isChecked() ? " -wtvmpeg2" : "";
 	inputOptions += ui->cbNoSCTE20->isChecked() ? " --noscte20" : "";
 
@@ -310,9 +309,9 @@ QString CCXOptions::getOptionsOutputString()
 
 	outputOptions += ui->cbChapters->isEnabled() && ui->cbChapters->isChecked() ? " -chapters" : "";
 	outputOptions += ui->cbAppend->isChecked() ? " --append" : "";
-    // Feature --noempty is disabled now
-    // To use it just change property of cbNoEmpty from disabled to enabled
-    outputOptions += ui->cbNoEmpty->isChecked() ? " --noempty" : "";
+  // Feature --noempty is disabled now
+  // To use it just change property of cbNoEmpty from disabled to enabled
+  outputOptions += ui->cbNoEmpty->isChecked() ? " --noempty" : "";
 	outputOptions += ui->cbWebvttCSS->isEnabled() && ui->cbWebvttCSS->isChecked() ? " --webvtt-create-css" : "";
 	outputOptions += ui->cbSegmentKey->isCheckable() ? " -key" : "";
 	outputOptions += ui->cbSplitSentence->isCheckable() ? " --splitbysentence" : "";
@@ -442,10 +441,10 @@ QString CCXOptions::getOptionsHardsubxString()
 			hardsubxOptions += " -detect_italics";
 		}
 
-        if (ui->cbquant->isChecked()){
-            hardsubxOptions += " -quant";
-        }
-
+    if (ui->cbquant->isChecked()){
+       hardsubxOptions += " -quant";
+    }
+    
 		hardsubxOptions += ui->cbTickerTape->isChecked() ? " -tickertext" : "";
 
 		//Minimum Subtitle Duration
@@ -476,7 +475,7 @@ void CCXOptions::on_cbHardsubx_toggled(bool checked)
 	ui->cbEnableItalicDetection->setEnabled(checked);
 	ui->gbMinSubDuration->setEnabled(checked);
 	ui->cbTickerTape->setEnabled(checked);
-    ui->cbquant->setEnabled(checked);
+  ui->cbquant->setEnabled(checked);
 }
 
 void CCXOptions::on_hsLumThresh_valueChanged(int value)
