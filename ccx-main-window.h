@@ -41,8 +41,8 @@ private slots:
 	void on_menuBar_exit_clicked();
 	void on_menuBar_about_clicked();
 
-    void dropEvent(QDropEvent *e);
-    void dragEnterEvent(QDragEnterEvent *e);
+      void dropEvent(QDropEvent *e);
+      void dragEnterEvent(QDragEnterEvent *e);
 
 signals:
 	void cmdLineUpdated();
