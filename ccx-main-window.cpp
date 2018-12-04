@@ -6,11 +6,14 @@
 #include <QFileDialog>
 #include <QDesktopServices>
 #include <QDateTime>
+#include <QMimeData>
+#include <QDragEnterEvent>
 
 CCXMainWindow::CCXMainWindow(QWidget *parent) :
 	QMainWindow(parent),
 	ui(new Ui::CCXMainWindow)
 {
+      setAcceptDrops(true);
 	ui->setupUi(this);
 	this->setFixedSize(this->width(), this->height());
 	optionsWindow = new CCXOptions();
@@ -330,4 +333,18 @@ void CCXMainWindow::on_menuBar_about_clicked()
 	   aboutWindow = new CCXAbout();
 	}
 	aboutWindow->show();
+}
+void CCXMainWindow::dragEnterEvent(QDragEnterEvent *e)
+{
+       if (e->mimeData()->hasUrls()) {
+           e->acceptProposedAction();
+       }
+}
+void CCXMainWindow::dropEvent(QDropEvent *e)
+{
+        foreach (const QUrl &url, e->mimeData()->urls()) {
+        QString droppedFileName = url.toLocalFile();
+        ui->lwFiles->addItem(droppedFileName);
+        this->updateSourceOptions();
+    }
 }
