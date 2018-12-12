@@ -19,18 +19,19 @@
   </property>
   <property name="styleSheet">
    <string notr="true">QGroupBox { 
-	border: 1px solid gray;
-	border-radius: 3px;
-	margin-top: 1ex; 
-}
-QGroupBox::title {
-	border: 0px outset gray;
-	border-radius: 0px;
-	subcontrol-origin: margin;
-	color: qlineargradient(x1: 0, y1: 0, x2: 1, y2: 1,
-			 stop: 0 #111111, stop: 0.7 #111111, stop: 1 #888888);
-	subcontrol-position: top left; 
-}</string>
+      border: 1px solid gray;
+      border-radius: 3px;
+      margin-top: 1ex; 
+    }
+    QGroupBox::title {
+      border: 0px outset gray;
+      border-radius: 0px;
+      subcontrol-origin: margin;
+      color: qlineargradient(x1: 0, y1: 0, x2: 1, y2: 1,
+          stop: 0 #111111, stop: 0.7 #111111, stop: 1 #888888);
+      subcontrol-position: top left; 
+    }
+   </string>
   </property>
   <widget class="QTabWidget" name="tabWidget">
    <property name="geometry">
@@ -689,6 +690,8 @@ QGroupBox::title {
         <widget class="QCheckBox" name="cbVidTrack">
          <property name="text">
           <string>Process dedicated track (if detected) instead of the video track</string>
+         </property>
+        </widget>
         <widget class="QCheckBox" name="cbNoSCTE20">
          <property name="text">
           <string>Ignore SCTE-20 data</string>
@@ -1874,8 +1877,6 @@ QGroupBox::title {
        <widget class="QCheckBox" name="cbDebugParse">
         <property name="text">
          <string>Parse (Print debug info about the parsed container file for TS/ASF files.)</string>
-        <property name="text">
-         <string>FullBin (Disable removal of trailing padding blocks when exporting to bin)</string>
         </property>
        </widget>
       </item>
@@ -1943,8 +1944,6 @@ QGroupBox::title {
         </property>
        </widget>
       </item>
-      <item row="12" column="0">
-       <widget class="QCheckBox" name="cbDebugTeletext">
       <item row="9" column="0">
        <widget class="QCheckBox" name="cbDebugPAT">
         <property name="text">
@@ -1959,8 +1958,6 @@ QGroupBox::title {
         </property>
        </widget>
       </item>
-      <item row="5" column="0">
-       <widget class="QCheckBox" name="cbDebugRaw">
       <item row="3" column="0">
        <widget class="QCheckBox" name="cbDebugXDS">
         <property name="text">
@@ -2056,8 +2053,8 @@ QGroupBox::title {
        <widget class="QCheckBox" name="cbNoTimeRef">
         <property name="text">
          <string>Ignore broadcast date information
- (only affects Teletext in 
-timed transcript with -datets)</string>
+          (only affects Teletext in 
+          timed transcript with -datets)</string>
         </property>
        </widget>
       </item>
@@ -3114,6 +3111,7 @@ timed transcript with -datets)</string>
      </property>
      <property name="title">
       <string>Miscellaneous</string>
+      <rect>
        <x>520</x>
        <y>10</y>
        <width>211</width>
@@ -3181,6 +3179,9 @@ timed transcript with -datets)</string>
         <layout class="QFormLayout" name="formLayout_3">
          <item row="1" column="0">
           <widget class="QCheckBox" name="cbOutputInterval">
+          </widget>
+         </item>
+        </layout>
         <layout class="QFormLayout" name="formLayout_4">
          <item row="0" column="0">
           <widget class="QCheckBox" name="cbDecoderBufferSize">
@@ -3206,6 +3207,9 @@ timed transcript with -datets)</string>
            </property>
            <property name="text">
             <string>30</string>
+           </property>
+          </widget>
+         </item>
          <item row="1" column="0">
           <widget class="QCheckBox" name="cbKOC">
            <property name="text">
@@ -3269,7 +3273,7 @@ timed transcript with -datets)</string>
         <widget class="QCheckBox" name="cfOption">
          <property name="text">
           <string>CF (Clean ES 
- without TS or PES headers)</string>
+           without TS or PES headers)</string>
          </property>
         </widget>
        </item>
@@ -4002,10 +4006,11 @@ timed transcript with -datets)</string>
      </property>
      <property name="html">
       <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
-&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
-p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'MS Shell Dlg 2'; font-size:8.25pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'Sans'; font-size:10pt;&quot;&gt;CCExtractor can _try_ to add a custom message (for credits for example) at the start and end of the file, looking for a window where there are no captions. If there is no such window, then no text will be added. The start window must be between the times given and must have enough time to display the message for at least the specified time.&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+        &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+        p, li { white-space: pre-wrap; }
+        &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'MS Shell Dlg 2'; font-size:8.25pt; font-weight:400; font-style:normal;&quot;&gt;
+        &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'Sans'; font-size:10pt;&quot;&gt;CCExtractor can _try_ to add a custom message (for credits for example) at the start and end of the file, looking for a window where there are no captions. If there is no such window, then no text will be added. The start window must be between the times given and must have enough time to display the message for at least the specified time.&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;
+      </string>
      </property>
     </widget>
     <widget class="QGroupBox" name="gbCreditsStart">
@@ -4274,11 +4279,12 @@ p, li { white-space: pre-wrap; }
      </property>
      <property name="html">
       <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
-&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
-p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'MS Shell Dlg 2'; font-size:8.25pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'Sans'; font-size:10pt; color:#ae2e1a;&quot;&gt;1. All connditions must be met, otherwise no text will be added.&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'Sans'; font-size:10pt; color:#ae2e1a;&quot;&gt;2. If you plan to distribute the output files non-comercially, please consider leaving a reference to CCExtractor&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+        &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+        p, li { white-space: pre-wrap; }
+        &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'MS Shell Dlg 2'; font-size:8.25pt; font-weight:400; font-style:normal;&quot;&gt;
+        &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'Sans'; font-size:10pt; color:#ae2e1a;&quot;&gt;1. All connditions must be met, otherwise no text will be added.&lt;/span&gt;&lt;/p&gt;
+        &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'Sans'; font-size:10pt; color:#ae2e1a;&quot;&gt;2. If you plan to distribute the output files non-comercially, please consider leaving a reference to CCExtractor&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;
+      </string>
      </property>
     </widget>
    </widget>
