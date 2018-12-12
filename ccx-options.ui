@@ -1878,6 +1878,9 @@
         <property name="text">
          <string>Parse (Print debug info about the parsed container file for TS/ASF files.)</string>
         </property>
+        <property name="text">
+         <string>FullBin (Disable removal of trailing padding blocks when exporting to bin)</string>
+        </property>
        </widget>
       </item>
       <item row="6" column="0">
@@ -1944,6 +1947,9 @@
         </property>
        </widget>
       </item>
+      <item row="12" column="0">
+       <widget class="QCheckBox" name="cbDebugTeletext"/>
+      </item>
       <item row="9" column="0">
        <widget class="QCheckBox" name="cbDebugPAT">
         <property name="text">
@@ -1957,6 +1963,9 @@
          <string>Teletext decoder verbose mode</string>
         </property>
        </widget>
+      </item>
+      <item row="5" column="0">
+       <widget class="QCheckBox" name="cbDebugRaw"/>
       </item>
       <item row="3" column="0">
        <widget class="QCheckBox" name="cbDebugXDS">
